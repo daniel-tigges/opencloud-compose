@@ -1,0 +1,18 @@
+
+---
+services:
+  backup-worker:
+    image: 'offen/docker-volume-backup:v2'
+    restart: always
+    environment:
+      - 'AWS_ENDPOINT=${DECOMPOSEDS3_ENDPOINT}'
+      - 'AWS_ACCESS_KEY_ID=${DECOMPOSEDS3_ACCESS_KEY}'
+      - 'AWS_SECRET_ACCESS_KEY=${DECOMPOSEDS3_SECRET_KEY}'
+      - AWS_REGION=${DECOMPOSEDS3_REGION:-eu-central-1}
+      - 'BUCKET_NAME=${DECOMPOSEDS3_BACKUP_BUCKET_NAME}'
+      - 'BACKUP_CRON_EXPRESSION=0 3 * * *'
+      - BACKUP_FILENAME=opencloud-metadata-%Y-%m-%dT%H.tar.gz
+      - BACKUP_RETENTION_DAYS=7
+    volumes:
+      - 'opencloud_config:/backup/config:ro'
+      - 'opencloud_data:/backup/data:ro'
