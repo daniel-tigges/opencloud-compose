@@ -14,5 +14,5 @@ services:
       - BACKUP_FILENAME=opencloud-metadata-%Y-%m-%dT%H.tar.gz
       - BACKUP_RETENTION_DAYS=7
     volumes:
-      - 'opencloud_config:/backup/config:ro'
-      - 'opencloud_data:/backup/data:ro'
+      - 'opencloud-config:/backup/config:ro'
+      - 'opencloud-data:/backup/data:ro'
