@@ -3,6 +3,8 @@ include:
   - storage/decomposeds3.yml
   - weboffice/collabora.yml
   - backup/backup-worker.yml
+  - external-proxy/opencloud-exposed.yml
+  - external-proxy/collabora-exposed.yml
 services:
   opencloud:
     image: ${OC_DOCKER_IMAGE:-opencloudeu/opencloud-rolling}:${OC_DOCKER_TAG:-latest}
