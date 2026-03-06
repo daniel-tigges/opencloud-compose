@@ -178,7 +178,7 @@ services:
     image: 'offen/docker-volume-backup:v2'
     restart: always
     environment:
-      - 'AWS_ENDPOINT=${DECOMPOSEDS3_ENDPOINT}'
+      - 'AWS_ENDPOINT=${DECOMPOSEDS3_ENDPOINT_FQDN}'
       - 'AWS_ACCESS_KEY_ID=${DECOMPOSEDS3_ACCESS_KEY}'
       - 'AWS_SECRET_ACCESS_KEY=${DECOMPOSEDS3_SECRET_KEY}'
       - AWS_REGION=${DECOMPOSEDS3_REGION:-eu-central-1}
